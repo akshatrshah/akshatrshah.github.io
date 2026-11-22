@@ -83,7 +83,8 @@ svg { width: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-l
 .profile-card-head { height: 46px; display: flex; align-items: center; gap: 8px; padding: 0 16px; color: #aab4c8; border-bottom: 1px solid rgba(255,255,255,.08); font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #55d6a3; box-shadow: 0 0 10px #55d6a3; }
 .status-live { margin-left: auto; color: #55d6a3; }
-.profile-photo { display: block; width: 100%; height: 360px; object-fit: cover; object-position: center 18%; background: #eef1f6; }
+.profile-photo-wrap { width: 220px; height: 220px; margin: 0; overflow: hidden; border-radius: 14px; background: #eef1f6; }
+.profile-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
 .terminal { height: 230px; padding: 34px 36px; font: 13px/2.15 ui-monospace, SFMono-Regular, Menlo, monospace; color: #dce5f5; }
 .terminal p { margin: 0; }
 .terminal-muted { color: #7f8da6; margin-right: 9px; }
@@ -98,7 +99,7 @@ svg { width: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-l
 .section { padding-top: 110px; padding-bottom: 110px; }
 .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 38px; color: #667085; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .13em; }
 .section-label span { color: var(--blue); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 220px 1fr 1.05fr; gap: 38px; align-items: start; }
 .about h2, .experience-heading h2, .projects-heading h2, .contact h2 {
   margin: 0; font-size: clamp(38px, 5vw, 58px); line-height: 1.05; letter-spacing: -.055em;
 }
@@ -192,7 +193,8 @@ footer { height: 110px; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-copy { padding: 90px 0 30px; }
   .hero-visual { height: 430px; }
-  .about-grid { gap: 40px; }
+  .about-grid { grid-template-columns: 180px 1fr 1fr; gap: 24px; }
+  .profile-photo-wrap { width: 180px; height: 180px; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
   .skills-grid article:nth-child(2) { border-right: 0; }
   .skills-grid article:nth-child(3), .skills-grid article:nth-child(4) { border-top: 1px solid var(--line); }
