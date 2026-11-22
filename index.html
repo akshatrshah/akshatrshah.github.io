@@ -110,17 +110,17 @@
           <article>
             <span class="skill-number">02</span>
             <h3>Backend &amp; Data</h3>
-            <p>Spring Boot, Django, Flask, Kafka, PostgreSQL, Redis, MongoDB</p>
+            <p>Spring Boot, Django, Flask, Kafka, PostgreSQL, MySQL, MongoDB, Redis, Celery</p>
           </article>
           <article>
             <span class="skill-number">03</span>
             <h3>Cloud &amp; DevOps</h3>
-            <p>Kubernetes, Docker, Terraform, AWS, Azure, Linux, GitHub Actions</p>
+            <p>Kubernetes, Docker, Terraform, AWS, Azure, Linux, Ansible, SLURM, GitHub Actions</p>
           </article>
           <article>
             <span class="skill-number">04</span>
             <h3>Applied AI &amp; Ops</h3>
-            <p>RAG pipelines, Claude API, LangChain, Prometheus, Grafana, Splunk</p>
+            <p>RAG pipelines, Claude API, LangChain, Prometheus, Grafana, Splunk, OpenTelemetry</p>
           </article>
         </div>
       </section>
@@ -136,16 +136,16 @@
           <div class="timeline">
             <article class="timeline-item">
               <div class="timeline-meta">
-                <time>2025 — Present</time>
+                <time>Aug 2025 — Present</time>
                 <span>Raleigh, NC</span>
               </div>
               <div class="timeline-content">
                 <h3>Research Software Engineer</h3>
                 <p class="company">North Carolina State University</p>
                 <ul>
-                  <li>Reduced a sparse matrix-exponential framework runtime from 2 hours to 5 minutes with sparsity-aware methods and multi-node parallelization.</li>
-                  <li>Built distributed CSR matrix computation for 1M × 1M biological state spaces on the Hazel HPC cluster.</li>
-                  <li>Added SLURM orchestration and runtime, memory, and allocation measurements for cluster-sized workloads.</li>
+                  <li>Reduced the runtime of a Python sparse matrix-exponential framework on the Hazel HPC cluster from 2 hours to 5 minutes by replacing the Taylor-series method with a more efficient sparsity-exploiting method and adding multi-node parallelization.</li>
+                  <li>Stored the 1M × 1M state-space matrix in CSR format and partitioned rows into blocks for distributed computation, avoiding dense-matrix memory limits for large-scale biological simulations while keeping row access fast for matrix-vector products.</li>
+                  <li>Orchestrated SLURM batch jobs with per-stage runtime and memory logging, using local tests to inform cluster runs and sizing node allocations from measured peak memory to stay within fixed compute windows.</li>
                 </ul>
               </div>
             </article>
@@ -159,25 +159,26 @@
                 <h3>Software Engineer Intern</h3>
                 <p class="company">Pearson</p>
                 <ul>
-                  <li>Built a Java health-check service for 160+ test centers, processing 40K+ daily events through Azure Kubernetes Service and Splunk.</li>
-                  <li>Created RAG-based incident triage with Claude API, reducing diagnosis-to-owner time by 35%.</li>
-                  <li>Replaced SOAP/XML uploads with a Spring Boot REST API for a 100K+ annual submission system.</li>
+                  <li>Developed a Java health-check service validating TCP/TLS 1.3 connectivity across 160+ test centers, containerized on Azure Kubernetes Service, streaming 40K+ daily events into Splunk and replacing occasional manual checks.</li>
+                  <li>Automated monitoring execution with Ansible playbooks and implemented tiered polling and retries with exponential backoff, with incident-level Slack alerts for certificate, port, and IP failures.</li>
+                  <li>Created an incident-triage pipeline using Claude API and RAG over a Confluence catalog of known issues, cutting the time from error to a triaged report reaching the right owner by 35% while keeping alerting rules deterministic.</li>
+                  <li>Rebuilt the result-upload service from SOAP/XML to a Spring Boot REST API with batched uploads, validated with simulated uploads for a system handling 100K+ annual submissions.</li>
                 </ul>
               </div>
             </article>
 
             <article class="timeline-item">
               <div class="timeline-meta">
-                <time>2023 — 2024</time>
+                <time>Sep 2023 — May 2024</time>
                 <span>Mumbai, India</span>
               </div>
               <div class="timeline-content">
                 <h3>Software Engineer Intern</h3>
                 <p class="company">Keynote India</p>
                 <ul>
-                  <li>Established Docker CI/CD with AWS EC2, S3, Nginx blue-green deployments, and canary releases.</li>
-                  <li>Cut transaction latency by 20% as the platform grew from 50 to 2K+ mutual funds.</li>
-                  <li>Built real-time support tooling that reduced engineering-assisted support tickets by 70%.</li>
+                  <li>Established a Docker CI/CD pipeline on AWS EC2 and S3 with Nginx blue-green deployments and a canary-style initial traffic shift, turning rollback into a traffic switch and enabling biweekly releases for an app with 100K+ downloads.</li>
+                  <li>Cut transaction latency by 20% while the app scaled from 50 to 2K+ mutual funds, through indexing, query rewrites, leaner API responses, and ahead-of-time Redis caching.</li>
+                  <li>Created a self-serve support dashboard with 40+ user-tracking points, dedicated views, WebSocket updates, and repeated-failure alerts, reducing support tickets requiring engineering involvement by 70%.</li>
                 </ul>
               </div>
             </article>
@@ -191,8 +192,8 @@
                 <h3>Software Engineer Intern</h3>
                 <p class="company">Plus91</p>
                 <ul>
-                  <li>Engineered a market-data pipeline processing 9K+ daily exchange data points.</li>
-                  <li>Delivered live portfolio analytics for 15 to 120 client portfolios with sub-200ms updates.</li>
+                  <li>Engineered a market-data ingestion pipeline processing 9K+ daily exchange data points, using per-instrument sliding-window buffers and batched database writes to keep persistence off the live signal-generation path.</li>
+                  <li>Delivered a real-time portfolio analytics platform with WebSocket price feeds and a MySQL backend, giving advisors live P&amp;L and threshold alerts in under 200ms as it scaled from 15 to 120 client portfolios.</li>
                 </ul>
               </div>
             </article>
@@ -211,38 +212,31 @@
         </div>
 
         <div class="project-grid">
-          <article class="project-card project-featured">
+          <article class="project-card">
             <div class="project-top">
               <span class="project-index">01</span>
-              <div class="project-arrow" aria-hidden="true">
+              <a class="project-arrow" href="https://github.com/akshatrshah/cloud-controller" target="_blank" rel="noopener" aria-label="Open Cloud Controller on GitHub">
                 <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
-              </div>
+              </a>
             </div>
-            <div class="project-art art-cluster" aria-hidden="true">
-              <div class="cluster-node node-a"></div>
-              <div class="cluster-node node-b"></div>
-              <div class="cluster-node node-c"></div>
-              <div class="cluster-node node-d"></div>
-              <div class="cluster-node node-e"></div>
-              <span class="cluster-line line-a"></span>
-              <span class="cluster-line line-b"></span>
-              <span class="cluster-line line-c"></span>
-              <span class="cluster-line line-d"></span>
-              <span class="cluster-core">raft</span>
-            </div>
+            <div class="project-art art-cluster" aria-hidden="true"><div class="cluster-core">raft</div></div>
             <div class="project-info">
               <h3>Cloud Controller</h3>
-              <p>A Go-based IaaS control plane with Raft consensus and Terraform-provisioned Kubernetes infrastructure.</p>
-              <div class="tags"><span>Go</span><span>Raft</span><span>Kubernetes</span><span>Terraform</span></div>
+              <p>Developed a Go-based IaaS control plane managing infrastructure resource state on a Terraform-provisioned 5-node Kubernetes cluster.</p>
+              <ul class="project-bullets">
+                <li>Implemented Raft consensus for leader election and log replication with a PostgreSQL-backed reconciliation loop.</li>
+                <li>Chaos-tested leader and follower failures under load, achieving failover in under 1 second and 100% success across 500 concurrent requests.</li>
+              </ul>
+              <div class="tags"><span>Go</span><span>Raft</span><span>PostgreSQL</span><span>Kubernetes</span><span>Terraform</span></div>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-top">
               <span class="project-index">02</span>
-              <div class="project-arrow" aria-hidden="true">
+              <a class="project-arrow" href="https://github.com/akshatrshah/jsonstreamdb" target="_blank" rel="noopener" aria-label="Open JSONStreamDB on GitHub">
                 <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
-              </div>
+              </a>
             </div>
             <div class="project-art art-stream" aria-hidden="true">
               <div class="stream-row"><i></i><i></i><i></i><i></i><i></i></div>
@@ -251,7 +245,11 @@
             </div>
             <div class="project-info">
               <h3>JSONStreamDB</h3>
-              <p>A Kafka-backed document store with offset replay, concurrent ingestion, and synchronized caching.</p>
+              <p>Implemented a Kafka-backed Java document store with decoupled write ingestion, partitioned streams, and offset-based replay for crash recovery.</p>
+              <ul class="project-bullets">
+                <li>Processed 10K+ test writes across 8 concurrent workers with no dropped records.</li>
+                <li>Designed synchronized read-through and write-through caching over a sharded JSON file store, cutting average read latency by 25%.</li>
+              </ul>
               <div class="tags"><span>Java</span><span>Kafka</span><span>Caching</span></div>
             </div>
           </article>
@@ -259,9 +257,9 @@
           <article class="project-card">
             <div class="project-top">
               <span class="project-index">03</span>
-              <div class="project-arrow" aria-hidden="true">
+              <a class="project-arrow" href="https://github.com/akshatrshah/pipelinesync" target="_blank" rel="noopener" aria-label="Open PipelineSync on GitHub">
                 <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
-              </div>
+              </a>
             </div>
             <div class="project-art art-pipeline" aria-hidden="true">
               <div class="pipeline-line"><span></span><span></span><span></span><span></span></div>
@@ -269,8 +267,102 @@
             </div>
             <div class="project-info">
               <h3>PipelineSync</h3>
-              <p>An event-driven CI/CD dashboard for GitHub pipelines with real-time collaborative debugging.</p>
-              <div class="tags"><span>React</span><span>TypeScript</span><span>WebSocket</span></div>
+              <p>Built webhook ingestion from 10+ GitHub repositories into a React/TypeScript pipeline status and deployment dashboard, replacing polling with event-driven updates.</p>
+              <ul class="project-bullets">
+                <li>Stored latest pipeline state in PostgreSQL and reused it instead of refetching on every refresh, cutting refresh requests by 30%.</li>
+                <li>Added WebSocket collaborative annotations for teams debugging failing pipelines together.</li>
+              </ul>
+              <div class="tags"><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>WebSocket</span></div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-index">04</span>
+              <a class="project-arrow" href="https://github.com/akshatrshah/distributed-payment-service" target="_blank" rel="noopener" aria-label="Open Distributed Payment Service on GitHub">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </a>
+            </div>
+            <div class="project-art art-stream" aria-hidden="true"><div class="stream-row"><i></i><i></i><i></i><i></i></div></div>
+            <div class="project-info">
+              <h3>Distributed Payment Service</h3>
+              <p>Built a distributed payment ledger with Raft-based consensus, idempotent transactions, durable persistence, and automated failover across a 5-node cluster.</p>
+              <div class="tags"><span>Go</span><span>Raft</span><span>Kubernetes</span><span>Prometheus</span></div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-index">05</span>
+              <a class="project-arrow" href="https://github.com/akshatrshah/netbalancer" target="_blank" rel="noopener" aria-label="Open NetBalancer on GitHub">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </a>
+            </div>
+            <div class="project-art art-pipeline" aria-hidden="true"><div class="pipeline-line"><span></span><span></span><span></span><span></span></div></div>
+            <div class="project-info">
+              <h3>NetBalancer</h3>
+              <p>Implemented a production-style L7 load balancer with intelligent routing, health checks, circuit breaking, rate limiting, and a live dashboard.</p>
+              <div class="tags"><span>C++</span><span>HTTP</span><span>Load Balancing</span><span>Observability</span></div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-index">06</span>
+              <a class="project-arrow" href="https://github.com/akshatrshah/cpu-profiler" target="_blank" rel="noopener" aria-label="Open CPU Profiler on GitHub">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </a>
+            </div>
+            <div class="project-art art-cluster" aria-hidden="true"><div class="cluster-core">perf</div></div>
+            <div class="project-info">
+              <h3>CPU Profiler</h3>
+              <p>Built a sampling profiler for Linux that attaches to running processes, captures call stacks, and produces interactive flamegraph HTML without recompiling the target.</p>
+              <div class="tags"><span>C++</span><span>Linux</span><span>ptrace</span><span>Flamegraphs</span></div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-index">07</span>
+              <a class="project-arrow" href="https://github.com/akshatrshah/safesight" target="_blank" rel="noopener" aria-label="Open SafeSight on GitHub">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </a>
+            </div>
+            <div class="project-art art-stream" aria-hidden="true"><div class="stream-row"><i></i><i></i><i></i></div></div>
+            <div class="project-info">
+              <h3>SafeSight</h3>
+              <p>Developed real-time warehouse perception for detecting and tracking risky worker-vehicle interactions from monocular video with predictive risk analysis.</p>
+              <div class="tags"><span>Python</span><span>Computer Vision</span><span>Tracking</span></div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-index">08</span>
+              <a class="project-arrow" href="https://github.com/akshatrshah/command.ai" target="_blank" rel="noopener" aria-label="Open command.ai on GitHub">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </a>
+            </div>
+            <div class="project-art art-pipeline" aria-hidden="true"><div class="pipeline-status"><b></b><em></em><em></em></div></div>
+            <div class="project-info">
+              <h3>command.ai</h3>
+              <p>Created a terminal observability platform combining ML-based command risk assessment with role-based privilege enforcement and audit trails.</p>
+              <div class="tags"><span>Java</span><span>Python</span><span>Machine Learning</span><span>RBAC</span></div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-index">09</span>
+              <a class="project-arrow" href="https://github.com/akshatrshah/fhir" target="_blank" rel="noopener" aria-label="Open FHIR project on GitHub">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </a>
+            </div>
+            <div class="project-art art-cluster" aria-hidden="true"><div class="cluster-core">FHIR</div></div>
+            <div class="project-info">
+              <h3>Healthcare Data Pipeline</h3>
+              <p>Built a secure healthcare data pipeline transforming HL7 messages into FHIR patient records with role-based access and audit logging.</p>
+              <div class="tags"><span>Java</span><span>HL7</span><span>FHIR</span><span>Security</span></div>
             </div>
           </article>
         </div>
@@ -285,7 +377,7 @@
               <time>Aug 2024 — May 2026</time>
               <h3>North Carolina State University</h3>
               <p>Master of Computer Science · 4.0 GPA</p>
-              <span>Algorithms · Software Engineering · Databases · Distributed Systems</span>
+              <span>Design &amp; Analysis of Algorithms · Software Engineering · Database Systems · Distributed Systems</span>
             </div>
           </article>
           <article>
@@ -294,7 +386,7 @@
               <time>Sep 2020 — Jun 2024</time>
               <h3>K J Somaiya College of Engineering</h3>
               <p>Bachelor of Technology, Computer Science · 3.9 GPA</p>
-              <span>Operating Systems · Networks · Machine Learning · Cloud Computing</span>
+              <span>Operating Systems · Computer Networks · Machine Learning · Cloud Computing · Artificial Intelligence</span>
             </div>
           </article>
         </div>
