@@ -83,6 +83,7 @@ svg { width: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-l
 .profile-card-head { height: 46px; display: flex; align-items: center; gap: 8px; padding: 0 16px; color: #aab4c8; border-bottom: 1px solid rgba(255,255,255,.08); font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #55d6a3; box-shadow: 0 0 10px #55d6a3; }
 .status-live { margin-left: auto; color: #55d6a3; }
+.profile-photo { display: block; width: 100%; height: 360px; object-fit: cover; object-position: center 18%; background: #eef1f6; }
 .terminal { height: 230px; padding: 34px 36px; font: 13px/2.15 ui-monospace, SFMono-Regular, Menlo, monospace; color: #dce5f5; }
 .terminal p { margin: 0; }
 .terminal-muted { color: #7f8da6; margin-right: 9px; }
