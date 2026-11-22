@@ -199,7 +199,9 @@ def main():
         if href.startswith("#"):
             check(href[1:] in parser.ids, f"Anchor target exists: {href}", failures)
 
-    check('mailto:akshatrshah@gmail.com?subject=' in html, "Contact section uses direct Gmail compose link", failures)
+    check('id="quick-contact-form"' in html, "Quick email message form exists", failures)
+    check('name="name"' in html and 'name="email"' in html and 'name="message"' in html,
+          "Quick email form includes name, email, and message fields", failures)
 
     check('rel="canonical"' in html, "Canonical SEO tag exists", failures)
     check('property="og:title"' in html and 'property="og:image"' in html, "Open Graph metadata exists", failures)

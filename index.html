@@ -404,10 +404,33 @@
         <div class="shell contact-inner">
           <p class="eyebrow light"><span></span> Let’s build something</p>
           <h2>Looking forward to<br />staying connected.</h2>
-          <a class="button button-light" href="mailto:akshatrshah@gmail.com?subject=Hello%20Akshat">
-            Email Akshat
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-4-4 4 4-4 4" /></svg>
-          </a>
+          <div class="contact-grid">
+            <form class="contact-form" id="quick-contact-form">
+              <label>
+                Name
+                <input type="text" name="name" autocomplete="name" required>
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows="4" required></textarea>
+              </label>
+              <button class="button button-light" type="submit">
+                Compose email
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-4-4 4 4-4 4" /></svg>
+              </button>
+              <p class="form-status" role="status" aria-live="polite">Opens your email app with every field filled.</p>
+            </form>
+            <div class="contact-direct">
+              <p>Prefer to reach out directly?</p>
+              <a href="mailto:akshatrshah@gmail.com">akshatrshah@gmail.com</a>
+              <a href="mailto:ashah39@ncsu.edu">ashah39@ncsu.edu</a>
+              <a href="https://www.linkedin.com/in/akshat-shah-3542201ba" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>

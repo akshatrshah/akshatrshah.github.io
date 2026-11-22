@@ -20,3 +20,21 @@ navLinks.addEventListener("click", (event) => {
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 
+const quickContactForm = document.querySelector("#quick-contact-form");
+
+if (quickContactForm) {
+  quickContactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(quickContactForm);
+    const name = String(formData.get("name")).trim();
+    const email = String(formData.get("email")).trim();
+    const message = String(formData.get("message")).trim();
+    const subject = `Portfolio message from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    const mailto = `mailto:akshatrshah@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+  });
+}
+
