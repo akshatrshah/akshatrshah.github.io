@@ -27,3 +27,4 @@ if (url.searchParams.get("sent") === "1") {
     formStatus.textContent = "Thanks — looking forward to staying connected.";
   }
 }
+
