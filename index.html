@@ -369,10 +369,43 @@
         <div class="shell contact-inner">
           <p class="eyebrow light"><span></span> Let’s build something</p>
           <h2>Have a problem worth<br />solving?</h2>
-          <a class="button button-light" href="mailto:ashah39@ncsu.edu">
-            Start a conversation
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-4-4 4 4-4 4" /></svg>
-          </a>
+          <div class="contact-grid">
+            <form class="contact-form" action="https://formsubmit.co/ashah39@ncsu.edu" method="POST">
+              <input type="hidden" name="_subject" value="New portfolio website inquiry">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="true">
+              <input type="hidden" name="_next" value="https://akshatrshah.github.io/?sent=1#contact">
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honey">
+
+              <label>
+                Name
+                <input type="text" name="name" autocomplete="name" required>
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows="4" required></textarea>
+              </label>
+              <label class="consent-label">
+                <input type="checkbox" name="consent" value="I agree to be contacted" required>
+                <span>I agree that Akshat may use these details to reply to this inquiry.</span>
+              </label>
+              <button class="button button-light" type="submit">
+                Send inquiry
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-4-4 4 4-4 4" /></svg>
+              </button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+            <div class="contact-direct">
+              <p>Prefer to reach out directly?</p>
+              <a href="mailto:ashah39@ncsu.edu">ashah39@ncsu.edu</a>
+              <a href="https://www.linkedin.com/in/akshat-shah-3542201ba" target="_blank" rel="noopener">LinkedIn</a>
+              <small>Submitted details are used only to respond to your message.</small>
+            </div>
+          </div>
         </div>
       </section>
     </main>

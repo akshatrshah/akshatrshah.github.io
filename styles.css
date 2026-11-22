@@ -182,6 +182,27 @@ svg { width: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-l
 .contact h2 { margin: 18px 0 32px; font-size: clamp(48px, 7vw, 76px); }
 .button-light { color: var(--navy); background: white; }
 .button-light:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.18); }
+.contact-grid { width: 100%; display: grid; grid-template-columns: minmax(0, 620px) 1fr; gap: 70px; align-items: end; }
+.contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.contact-form label { display: grid; gap: 7px; color: #bdc6d7; font-size: 12px; font-weight: 750; }
+.contact-form label:nth-of-type(3), .contact-form .consent-label, .contact-form .button, .form-status { grid-column: 1 / -1; }
+.contact-form input:not([type="checkbox"]), .contact-form textarea {
+  width: 100%; border: 1px solid rgba(255,255,255,.16); border-radius: 8px;
+  padding: 12px 13px; color: white; background: rgba(255,255,255,.07);
+  font: 14px/1.5 Inter, ui-sans-serif, sans-serif; outline: none;
+}
+.contact-form textarea { resize: vertical; min-height: 104px; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: #779cff; box-shadow: 0 0 0 3px rgba(119,156,255,.12); }
+.contact-form .consent-label { grid-template-columns: 18px 1fr; align-items: start; color: #bdc6d7; font-weight: 500; line-height: 1.5; }
+.consent-label input { width: 16px; height: 16px; margin: 1px 0 0; accent-color: #779cff; }
+.contact-form .button { border: 0; width: 170px; cursor: pointer; }
+.form-honey { position: absolute; left: -9999px; }
+.form-status { min-height: 18px; margin: 0; color: #55d6a3; font-size: 13px; }
+.contact-direct { display: grid; gap: 9px; margin-bottom: 30px; }
+.contact-direct p { margin: 0 0 4px; color: #aab5c9; font-size: 13px; }
+.contact-direct a { font-size: 15px; font-weight: 750; }
+.contact-direct a:hover { color: #779cff; }
+.contact-direct small { max-width: 260px; margin-top: 12px; color: #7f8aa0; line-height: 1.5; }
 
 footer { height: 110px; }
 .footer-inner { height: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; }
@@ -242,6 +263,9 @@ footer { height: 110px; }
   .contact-inner { min-height: 360px; }
   .contact h2 { font-size: 48px; }
   .contact .button { width: auto; }
+  .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .contact-form { grid-template-columns: 1fr; }
+  .contact-form label, .contact-form .consent-label, .contact-form .button, .form-status { grid-column: 1; }
   footer { height: auto; }
   .footer-inner { min-height: 160px; grid-template-columns: 1fr; justify-items: start; gap: 20px; padding: 30px 0; }
   .social-links { justify-content: flex-start; flex-wrap: wrap; }
