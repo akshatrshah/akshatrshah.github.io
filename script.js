@@ -20,11 +20,3 @@ navLinks.addEventListener("click", (event) => {
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 
-const url = new URL(window.location.href);
-if (url.searchParams.get("sent") === "1") {
-  const formStatus = document.querySelector(".form-status");
-  if (formStatus) {
-    formStatus.textContent = "Thanks — looking forward to staying connected.";
-  }
-}
-

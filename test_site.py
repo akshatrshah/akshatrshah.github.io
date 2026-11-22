@@ -199,11 +199,7 @@ def main():
         if href.startswith("#"):
             check(href[1:] in parser.ids, f"Anchor target exists: {href}", failures)
 
-    check('formsubmit.co/akshatrshah@gmail.com' in html, "Contact form submits to personal email", failures)
-    check('name="name"' in html and 'name="email"' in html and 'name="message"' in html,
-          "Contact form includes name, email, and message fields", failures)
-    check('name="consent"' in html, "Contact form includes consent checkbox", failures)
-    check("_captcha" in html and "_honey" in html, "Contact form has CAPTCHA and spam honeypot settings", failures)
+    check('mailto:akshatrshah@gmail.com?subject=' in html, "Contact section uses direct Gmail compose link", failures)
 
     check('rel="canonical"' in html, "Canonical SEO tag exists", failures)
     check('property="og:title"' in html and 'property="og:image"' in html, "Open Graph metadata exists", failures)
