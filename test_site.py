@@ -199,7 +199,8 @@ def main():
         if href.startswith("#"):
             check(href[1:] in parser.ids, f"Anchor target exists: {href}", failures)
 
-    check('id="quick-contact-form"' in html, "Quick email message form exists", failures)
+    check('id="quick-contact-form"' in html and 'formsubmit.co/ajax/akshatrshah@gmail.com' in html,
+          "On-page AJAX FormSubmit contact form exists", failures)
     check('name="name"' in html and 'name="email"' in html and 'name="message"' in html,
           "Quick email form includes name, email, and message fields", failures)
 

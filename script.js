@@ -23,18 +23,39 @@ document.querySelector("#year").textContent = new Date().getFullYear();
 const quickContactForm = document.querySelector("#quick-contact-form");
 
 if (quickContactForm) {
-  quickContactForm.addEventListener("submit", (event) => {
+  quickContactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(quickContactForm);
-    const name = String(formData.get("name")).trim();
-    const email = String(formData.get("email")).trim();
-    const message = String(formData.get("message")).trim();
-    const subject = `Portfolio message from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    const mailto = `mailto:akshatrshah@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const submitButton = quickContactForm.querySelector('button[type="submit"]');
+    const status = quickContactForm.querySelector(".form-status");
 
-    window.location.href = mailto;
+    submitButton.disabled = true;
+    submitButton.className = "button button-loading";
+    submitButton.textContent = "Submitting...";
+    status.textContent = "";
+
+    try {
+      const response = await fetch(quickContactForm.action, {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(quickContactForm)
+      });
+      const result = await response.json();
+
+      if (!response.ok || result.success === false) {
+        throw new Error(result.message || "Submission failed");
+      }
+
+      submitButton.className = "button button-success";
+      submitButton.textContent = "Submitted";
+      status.textContent = "Thanks — looking forward to staying connected.";
+      quickContactForm.reset();
+    } catch (error) {
+      submitButton.disabled = false;
+      submitButton.className = "button button-light";
+      submitButton.textContent = "Try again";
+      status.textContent = "Could not submit right now. Please try again.";
+    }
   });
 }
 

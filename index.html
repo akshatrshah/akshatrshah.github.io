@@ -405,7 +405,11 @@
           <p class="eyebrow light"><span></span> Let’s build something</p>
           <h2>Looking forward to<br />staying connected.</h2>
           <div class="contact-grid">
-            <form class="contact-form" id="quick-contact-form">
+            <form class="contact-form" id="quick-contact-form" action="https://formsubmit.co/ajax/akshatrshah@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New portfolio website message">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honey">
               <label>
                 Name
                 <input type="text" name="name" autocomplete="name" required>
@@ -419,10 +423,10 @@
                 <textarea name="message" rows="4" required></textarea>
               </label>
               <button class="button button-light" type="submit">
-                Compose email
+                Submit message
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-4-4 4 4-4 4" /></svg>
               </button>
-              <p class="form-status" role="status" aria-live="polite">Opens your email app with every field filled.</p>
+              <p class="form-status" role="status" aria-live="polite"></p>
             </form>
             <div class="contact-direct">
               <p>Prefer to reach out directly?</p>
