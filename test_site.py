@@ -212,6 +212,8 @@ def main():
 
     check(css.count("{") == css.count("}"), "CSS braces are balanced", failures)
     check("@media (max-width: 680px)" in css, "Mobile breakpoint exists", failures)
+    check("overflow-x: hidden" in css, "Horizontal page overflow is prevented", failures)
+    check(".contact-grid { grid-template-columns: 1fr;" in css, "Mobile contact layout uses one column", failures)
 
     node = subprocess.run(["node", "--check", str(js_path)], capture_output=True, text=True)
     check(node.returncode == 0, "JavaScript syntax check passes", failures)
